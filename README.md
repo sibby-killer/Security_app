@@ -105,8 +105,8 @@ Feedback Submitted → Feedback Approved → Resolved → Closed
    
    Update `.env` with your Supabase credentials:
    ```env
-   vite_supabase_url=your_supabase_project_url
-   vite_supabase_anon_key=your_supabase_anon_key
+   VITE_SUPABASE_URL=your_supabase_project_url
+   VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
    ```
 
 4. **Start development server**
