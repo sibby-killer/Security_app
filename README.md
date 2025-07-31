@@ -1,82 +1,83 @@
-# Community Security Alert App (CSAA)
+# Community Safe Zone 🛡️
 
-A comprehensive security incident management system for communities, featuring role-based access control, real-time notifications, and automated workflow management.
+> **A comprehensive security incident management system for communities**
 
-## 🚀 Features
+**Developed by Group Six** | React + TypeScript + Supabase
 
-### Core Functionality
-- **Incident Reporting**: Residents can report security incidents with photos and location data
-- **Real-time Notifications**: Instant alerts for new incidents and status updates
-- **Interactive Map**: Visual representation of incidents across the community
-- **Role-based Access**: Different interfaces for residents, security personnel, and administrators
+[![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5.3-blue.svg)](https://www.typescriptlang.org/)
+[![Supabase](https://img.shields.io/badge/Supabase-2.53.0-green.svg)](https://supabase.com/)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-### Enhanced Incident Management Workflow
+---
 
-#### 1. Incident Lifecycle
-- **Reported**: Initial incident submission by residents
-- **Assigned**: Admin/Super Admin assigns to security personnel
-- **In Progress**: Security personnel actively handling the incident
-- **Feedback Pending**: Security submits feedback, awaiting approval
-- **Feedback Submitted**: Feedback submitted, pending reporter and admin approval
-- **Feedback Approved**: Both reporter and admin have approved the feedback
-- **Resolved**: Incident marked as completed
-- **Closed**: Final status after resolution
+## 📋 Table of Contents
 
-#### 2. Role-based Permissions
+- [Overview](#overview)
+- [Features](#-features)
+- [Technology Stack](#-technology-stack)
+- [Quick Start](#-quick-start)
+- [Project Structure](#-project-structure)
+- [Contributing](#-contributing)
+- [License](#-license)
 
-**Residents:**
-- Report new incidents
-- View all incidents
-- Receive notifications about their reports
-- Approve security feedback for their incidents
+## Overview
 
-**Security Personnel:**
-- View assigned incidents
-- Update incident status
-- Submit feedback after handling incidents
-- Track feedback approval status
+Community Safe Zone is a modern, role-based security incident management system designed to enhance community safety through real-time incident reporting, automated workflow management, and comprehensive analytics.
 
-**Admins & Super Admins:**
-- Assign incidents to security personnel
-- Approve security feedback
-- Manage user roles and permissions
-- View comprehensive analytics
-- Manage all incidents and users
+### 🎯 Key Objectives
+- **Enhance Community Safety**: Provide residents with easy incident reporting
+- **Streamline Security Operations**: Automate incident assignment and tracking
+- **Improve Response Times**: Real-time notifications and status updates
+- **Ensure Accountability**: Comprehensive audit trail and feedback system
 
-### Notification System
-- **Real-time alerts** for new incidents
-- **Status update notifications** for incident progress
-- **Feedback approval requests** for reporters and admins
-- **Assignment notifications** for security personnel
+---
+
+## ✨ Features
+
+### 🔐 Role-Based Access Control
+- **Residents**: Report incidents, track status, approve feedback
+- **Security Personnel**: Handle assigned incidents, submit feedback
+- **Administrators**: Manage assignments, approve feedback, user management
+- **Super Admins**: Full system access and analytics
+
+### 📱 Core Functionality
+- **Incident Reporting**: Photo uploads, location tracking, detailed descriptions
+- **Real-time Notifications**: Instant alerts for all stakeholders
+- **Interactive Map**: Visual incident tracking across the community
+- **Workflow Management**: Automated incident lifecycle from report to resolution
+- **Feedback System**: Multi-level approval process for incident resolution
+
+### 🔄 Incident Lifecycle
+```
+Reported → Assigned → In Progress → Feedback Pending → 
+Feedback Submitted → Feedback Approved → Resolved → Closed
+```
+
+### 📊 Advanced Features
+- **Real-time Updates**: Live status changes and notifications
+- **File Management**: Secure photo uploads and storage
+- **Audit Logging**: Complete action history for compliance
+- **Analytics Dashboard**: Comprehensive reporting and insights
+
+---
 
 ## 🛠️ Technology Stack
 
-- **Frontend**: React 18 + TypeScript + Vite
-- **UI Framework**: Shadcn/ui + Tailwind CSS
-- **Backend**: Supabase (PostgreSQL + Real-time subscriptions)
-- **Authentication**: Supabase Auth
-- **File Storage**: Supabase Storage
-- **Maps**: Leaflet.js
+| Component | Technology | Version |
+|-----------|------------|---------|
+| **Frontend** | React + TypeScript | 18.3.1 |
+| **Build Tool** | Vite | 5.4.1 |
+| **UI Framework** | Shadcn/ui + Tailwind CSS | Latest |
+| **Backend** | Supabase (PostgreSQL) | 2.53.0 |
+| **Authentication** | Supabase Auth | Built-in |
+| **Real-time** | Supabase Subscriptions | Built-in |
+| **Maps** | Leaflet.js | Latest |
+| **State Management** | TanStack Query | 5.56.2 |
 
-## 📋 Database Schema
+---
 
-### Core Tables
-- `profiles`: User accounts with role-based access
-- `incidents`: Security incident reports
-- `incident_assignments`: Assignment history and tracking
-- `incident_feedback`: Security personnel feedback system
-- `incident_photos`: Photo attachments for incidents
-- `comments`: Discussion and updates on incidents
-- `notifications`: System-wide notification management
-- `audit_logs`: Complete audit trail for all actions
-
-### User Roles
-- `resident`: Community members who can report incidents
-- `security`: Security personnel who handle assigned incidents
-- `admin`: Administrators who can assign incidents and approve feedback
-- `super_admin`: Super administrators with full system access
-
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
 - Node.js 18+ 
@@ -87,7 +88,7 @@ A comprehensive security incident management system for communities, featuring r
 
 1. **Clone the repository**
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/sibby-killer/Security_app.git
    cd community-safe-zone-main
    ```
 
@@ -96,123 +97,146 @@ A comprehensive security incident management system for communities, featuring r
    npm install
    ```
 
-3. **Set up Supabase**
-   - Create a new Supabase project
-   - Run the SQL schema from `supabase/schema.sql`
-   - Configure storage buckets for incident photos
-
-4. **Environment Configuration**
+3. **Environment Setup**
    ```bash
+   # Create environment file
    cp .env.example .env
    ```
+   
    Update `.env` with your Supabase credentials:
-   ```
-   VITE_SUPABASE_URL=your_supabase_url
+   ```env
+   VITE_SUPABASE_URL=your_supabase_project_url
    VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
    ```
 
-5. **Start the development server**
+4. **Start development server**
    ```bash
    npm run dev
    ```
 
-## 📱 Usage Guide
-
-### For Residents
-1. **Report an Incident**
-   - Navigate to "Report" in the main menu
-   - Fill in incident details, location, and upload photos
-   - Submit the report
-
-2. **Track Your Reports**
-   - View all incidents in the "Incidents" section
-   - Receive notifications about status updates
-   - Approve security feedback when notified
-
-### For Security Personnel
-1. **View Assigned Incidents**
-   - Access the "Security Dashboard"
-   - See all incidents assigned to you
-   - Update status as you handle incidents
-
-2. **Submit Feedback**
-   - After handling an incident, submit detailed feedback
-   - Wait for reporter and admin approval
-   - Track approval status
-
-### For Administrators
-1. **Assign Incidents**
-   - Access the "Admin Panel"
-   - View unassigned incidents
-   - Assign incidents to available security personnel
-
-2. **Approve Feedback**
-   - Review security personnel feedback
-   - Approve or reject feedback submissions
-   - Manage user roles and permissions
-
-## 🔧 Configuration
+5. **Build for production**
+   ```bash
+   npm run build
+   ```
 
 ### Supabase Setup
+
 1. Create a new Supabase project
-2. Run the complete schema from `supabase/schema.sql`
+2. Run the SQL schema from `supabase/schema.sql`
 3. Configure Row Level Security (RLS) policies
 4. Set up storage buckets for file uploads
 5. Configure authentication providers
 
-### Environment Variables
-```env
-VITE_SUPABASE_URL=your_supabase_project_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+---
+
+## 📁 Project Structure
+
+```
+community-safe-zone-main/
+├── src/
+│   ├── components/          # Reusable UI components
+│   ├── pages/              # Application pages
+│   ├── integrations/       # External service integrations
+│   ├── hooks/              # Custom React hooks
+│   ├── utils/              # Utility functions
+│   └── types/              # TypeScript type definitions
+├── public/                 # Static assets
+├── supabase/               # Database schema and migrations
+├── docs/                   # Documentation
+└── scripts/                # Build and deployment scripts
 ```
 
-## 📊 Features in Detail
+---
 
-### Incident Management Workflow
-1. **Reporting**: Residents report incidents with details and photos
-2. **Notification**: Admins and security receive instant notifications
-3. **Assignment**: Admins assign incidents to security personnel
-4. **Handling**: Security personnel update status and handle incidents
-5. **Feedback**: Security submit detailed feedback after resolution
-6. **Approval**: Reporter and admin approve the feedback
-7. **Resolution**: Incident marked as resolved and closed
+## 🎨 UI Components
 
-### Notification System
-- **Real-time updates** via Supabase subscriptions
-- **Role-based notifications** for different user types
-- **Action-required notifications** for approvals
-- **Email and push notification** support
+Built with **Shadcn/ui** and **Tailwind CSS** for a modern, accessible design:
 
-### Security Features
-- **Row Level Security (RLS)** on all database tables
-- **Role-based access control** throughout the application
-- **Audit logging** for all system actions
-- **Secure file uploads** with proper validation
+- **Responsive Design**: Mobile-first approach
+- **Dark/Light Mode**: Theme switching capability
+- **Accessibility**: WCAG compliant components
+- **Custom Components**: Tailored for security workflows
+
+---
+
+## 🔒 Security Features
+
+- **Row Level Security (RLS)**: Database-level access control
+- **Role-based Permissions**: Granular user access control
+- **Audit Logging**: Complete action history
+- **Secure File Uploads**: Validated and sanitized uploads
+- **Environment Variables**: Secure credential management
+
+---
+
+## 📊 Database Schema
+
+### Core Tables
+- `profiles` - User accounts and roles
+- `incidents` - Security incident reports
+- `incident_assignments` - Assignment tracking
+- `incident_feedback` - Security feedback system
+- `incident_photos` - Photo attachments
+- `comments` - Incident discussions
+- `notifications` - System notifications
+- `audit_logs` - Complete audit trail
+
+---
 
 ## 🤝 Contributing
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+We welcome contributions from the community! Please follow these steps:
+
+1. **Fork** the repository
+2. **Create** a feature branch (`git checkout -b feature/amazing-feature`)
+3. **Commit** your changes (`git commit -m 'Add amazing feature'`)
+4. **Push** to the branch (`git push origin feature/amazing-feature`)
+5. **Open** a Pull Request
+
+### Development Guidelines
+- Follow TypeScript best practices
+- Write comprehensive tests
+- Update documentation as needed
+- Follow the existing code style
+
+---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+---
 
 ## 🆘 Support
 
-For support and questions:
-- Create an issue in the GitHub repository
-- Contact the development team
-- Check the documentation in the `/docs` folder
+- **Issues**: [GitHub Issues](https://github.com/sibby-killer/Security_app/issues)
+- **Documentation**: Check the `/docs` folder
+- **Team**: Contact Group Six development team
+
+---
 
 ## 🔮 Roadmap
 
-- [ ] Mobile app development
+- [ ] Mobile app development (React Native)
 - [ ] Advanced analytics dashboard
 - [ ] Integration with external security systems
 - [ ] Multi-language support
 - [ ] Advanced reporting features
 - [ ] API for third-party integrations
+- [ ] Machine learning for incident prediction
+
+---
+
+## 👥 Group Six Team
+
+**Developed by Group Six** - A collaborative effort to create safer communities through innovative technology.
+
+---
+
+<div align="center">
+
+**Made with ❤️ by Group Six**
+
+[![GitHub](https://img.shields.io/badge/GitHub-Repository-blue.svg)](https://github.com/sibby-killer/Security_app)
+
+</div>
