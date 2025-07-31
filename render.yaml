@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: community-safe-zone
+    env: static
+    buildCommand: npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: NODE_VERSION
+        value: 18.0.0 
